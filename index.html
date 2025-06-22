@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DesignGenie</title>
+    
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+      /* Glow Circle Effects */
+      .purple-glow-circle {
+        position: absolute;
+        width: 120vw;
+        height: 120vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: 0%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .pink-glow-circle {
+        position: absolute;
+        width: 100vw;
+        height: 80vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #d10895,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 1;
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        z-index: -2;
+      }
+      
+      .genie-pink-glow-circle {
+        position: absolute;
+        width: 120vw;
+        height: 120vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #f81ab6,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 1;
+        top: 0%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      /* Navigation Link Effects */
+      .nav-link {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .nav-link:hover {
+        background: linear-gradient(90deg, #7100ca, #d10895);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+      }
+      
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background: linear-gradient(90deg, #7100ca, #d10895);
+        transition: width 0.3s ease;
+      }
+      
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      
+      /* Glassmorphism Card Style */
+      .shade-box {
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1rem;
+        background: linear-gradient(
+          to bottom right,
+          transparent 0%,
+          transparent 40%,
+          rgba(238, 234, 234, 0.1) 100%
+        );
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      .shade-box::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 1rem;
+        padding: 1px;
+        background: linear-gradient(
+          to bottom right,
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0)
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+      
+      /* Additional Glow Effects */
+      .ai-purple-glow-circle {
+        position: absolute;
+        width: 100vw;
+        height: 80vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 1;
+        top: 100%;
+        left: 20%;
+        transform: translate(-50%, -50%);
+        z-index: -2;
+      }
+      
+      .footer-purple-glow-circle {
+        position: absolute;
+        width: 80vw;
+        height: 80vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: 0%;
+        left: 100%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .footer-pink-glow-circle {
+        position: absolute;
+        width: 50vw;
+        height: 50vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #d10895,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: 60%;
+        left: 90%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .credit-purple-glow-circle-left {
+        position: absolute;
+        width: 50vw;
+        height: 50vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: 50%;
+        left: -10%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .credit-purple-glow-circle-right {
+        position: absolute;
+        width: 50vw;
+        height: 50vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: 50%;
+        left: 110%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+      
+      .credit-pink-glow-circle-top {
+        position: absolute;
+        width: 100%;
+        height: 10vw;
+        background: radial-gradient(
+          circle at center,
+          #d10895,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        top: -40%;
+      }
+      
+      .credit-pink-glow-circle-bottom {
+        position: absolute;
+        width: 100%;
+        height: 10vw;
+        background: radial-gradient(
+          circle at center,
+          #d10895,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 0.8;
+        bottom: -40%;
+      }
+      
+      .faq-purple-glow-circle {
+        position: absolute;
+        width: 120vw;
+        height: 120vw;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          #7100ca,
+          rgba(113, 0, 202, 0) 70%
+        );
+        filter: blur(20px);
+        opacity: 1;
+        top: 0%;
+        left: 0%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  
+  <body class="bg-black text-white dark:bg-white dark:text-black transition-colors duration-300">
+    <!-- ========== HEADER SECTION ========== -->
+    <header class="relative w-full h-[100vh] overflow-hidden max-w-[1500px] mx-auto">
+      <!-- Navigation -->
+      <nav class="flex items-center justify-between md:justify-start p-4 md:p-6">
+        <div class="flex items-center">
+          <img
+            src="./images/logo.png"
+            alt="DesignGenie Logo"
+            class="h-14 md:h-20 mr-4"
+          />
+        </div>
+        <!-- Navbar Links -->
+        <ul
+          id="menu"
+          class="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-8 absolute md:static top-16 right-4 md:flex md:items-center p-4 md:p-0 rounded-md md:rounded-none z-10 hidden md:flex"
+        >
+          <li><a href="#gallery" class="nav-link block md:inline">Gallery</a></li>
+          <li><a href="#faqs" class="nav-link block md:inline">FAQs</a></li>
+          <li><a href="#about" class="nav-link block md:inline">About Us</a></li>
+          <li><a href="#pricing" class="nav-link block md:inline">Pricing</a></li>
+          <li><a href="#contact" class="nav-link block md:inline">Contact</a></li>
+          <li>
+            <button
+              id="theme-toggle-mobile"
+              class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white dark:text-black px-4 py-2 rounded-full md:hidden mt-2 md:mt-0 transition-all hover:scale-105"
+            >
+              Toggle Theme
+            </button>
+          </li>
+        </ul>
+        <!-- Theme Toggle and Menu Button -->
+        <div class="flex items-center justify-between">
+          <button
+            id="theme-toggle"
+            class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white dark:text-black px-4 py-2 rounded-full mr-4 hidden md:block"
+          >
+            Toggle Theme
+          </button>
+          <button
+            id="menu-btn"
+            class="md:hidden text-white dark:text-black focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        
+        
+      </nav>
+      
+      <!-- Hero Content -->
+      <div class="absolute md:-left-[20%] -left-[50%] md:top-[20%] top-[40%]">
+        <img
+          src="./images//hero-layout.png"
+          alt="layout"
+          class="md:w-[70%] w-[90%]"
+        />
+      </div>
+      
+      <div class="flex flex-col px-4 absolute bottom-20 left-10 w-[50%] md:w-[40%]">
+        <h1 class="text-3xl md:text-4xl font-bold mb-10 dark:text-black">
+          Someone's always been there for you.
+        </h1>
+        <p class="text-lg md:text-xl max-w-md dark:text-black">
+          DesignGenie is there for you too, to help bring your designs to life.
+        </p>
+      </div>
+      
+      <!-- Background Effects -->
+      <div class="purple-glow-circle"></div>
+      <div class="pink-glow-circle"></div>
+    </header>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <main>
+      <!-- ===== WHAT IS DESIGN GENIE SECTION ===== -->
+      <section class="relative h-full overflow-hidden pb-20">
+        <img
+          src="./images/white-logo.png"
+          alt="logo"
+          class="h-14 md:h-20 mr-4 absolute top-10 left-10"
+        />
+        <div class="genie-pink-glow-circle"></div>
+        
+        <div class="flex md:flex-row flex-col justify-center items-start w-full pt-36 gap-5 md:gap-0">
+          <div class="w-full px-20 md:px-0">
+            <div class="xl:ml-40 md:ml-20 shade-box p-10 md:p-10 xl:p-20 h-[500px] rounded-2xl">
+              <h1 class="lg:text-5xl md:text-4xl text-3xl">
+                What is <br />
+                Design Genie?
+              </h1>
+              <p class="mt-5 text-xl">
+                The single, simple platform that helps you go from design idea to
+                manufacturing-ready tech packs, with AI-assisted fashion design
+                tools for image generation, size charts, and more.
+              </p>
+            </div>
+          </div>
+          
+          <div class="w-full">
+            <img src="./images/genie-image.png" alt="" class="" />
+            <img
+              src="./images/genie-bg-image.png"
+              alt=""
+              class="absolute top-[240px] w-[50%] -z-10 md:block hidden"
+            />
+          </div>
+        </div>
+
+        <div class="absolute">
+          <img src="./images/ai-bg.jpg" alt="" class="w-full opacity-25" />
+        </div>
+
+        <div class="relative pt-40 h-full flex flex-col justify-center items-center text-center px-4">
+          <button
+            class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-10 py-2 rounded-lg text-lg font-medium opacity-75 border"
+          >
+            Sign Up
+          </button>
+          <p class="text-lg md:text-3xl md:max-w-4xl max-w-xl mt-10">
+            Try AI-powered fastion design with 50 free credits to create images or
+            size charts. No credit card required.
+          </p>
+          
+          <div class="w-[25rem] absolute -left-20 top-56 md:block hidden">
+            <img src="./images/ai-genie.png" alt="" />
+          </div>
+          
+          <div class="text-center w-full mt-56 flex flex-col justify-center items-center">
+            <p class="text-2xl md:max-w-4xl max-w-xl">
+              Your Genie awaits. Let's create something beautiful.
+            </p>
+            <img src="./images/ai-text-banner.png" alt="" class="w-1/2" />
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== AI GENIE CAPABILITIES SECTION ===== -->
+      <section class="relative h-full overflow-hidden pb-10">
+        <div class="ai-purple-glow-circle -z-20"></div>
+        <img
+          src="./images/grediant-logo.png"
+          alt="logo"
+          class="h-14 md:h-20 mr-4 absolute top-10 left-5 md:left-10"
+        />
+
+        <div class="flex flex-col md:flex-row pt-10 z-10">
+          <!-- Left Content Column -->
+          <div class="px-5 md:pl-20 pt-10 md:pt-20 md:w-1/2">
+            <h1 class="text-3xl md:text-5xl pt-5 md:pt-10">
+              What can your AI Genie do?
+            </h1>
+            <p class="pt-3 md:pt-5 text-sm md:text-base">
+              Bring your ideas to life through simple, powerful tools built for
+              designers, manufacturers, and creative teams.
+            </p>
+          </div>
+
+          <!-- Right Features Column -->
+          <div class="mt-8 md:mt-0 border-l border-t border-b border-r-0 px-5 md:px-20 py-5 md:py-10 flex flex-col gap-5 md:gap-10 rounded-tl-3xl rounded-bl-3xl md:w-1/2">
+            <!-- Feature 1 -->
+            <div class="flex flex-col gap-2">
+              <div class="text-2xl md:text-3xl">🛡️</div>
+              <p class="text-xl md:text-3xl">Text to Image</p>
+              <p class="text-sm md:text-base">
+                Use simple prompts to generate fashion design sketches instantly.
+                This AI fashion design tool brings early-stage concepts to life
+                without manual drawing.
+              </p>
+            </div>
+            
+            <!-- Feature 2 -->
+            <div class="flex flex-col gap-2">
+              <div class="text-2xl md:text-3xl">🛡️</div>
+              <p class="text-xl md:text-3xl">Image Variations</p>
+              <p class="text-sm md:text-base">
+                Upload a reference design and let your Genie create multiple fresh
+                takes on it. Ideal for designers building seasonal collections
+                from existing styles.
+              </p>
+            </div>
+            
+            <!-- Feature 3 -->
+            <div class="flex flex-col gap-2">
+              <div class="text-2xl md:text-3xl">🛡️</div>
+              <p class="text-xl md:text-3xl">Combine 2 Images</p>
+              <p class="text-sm md:text-base">
+                Blend a reference and an inspiration image to create unique new
+                designs. Great for prototyping hybrid ideas.
+              </p>
+            </div>
+            
+            <!-- Feature 4 -->
+            <div class="flex flex-col gap-2">
+              <div class="text-2xl md:text-3xl">🛡️</div>
+              <p class="text-xl md:text-3xl">Size Chart Generator</p>
+              <p class="text-sm md:text-base">
+                Create accurate size charts for clothing, with region-specific
+                grading and tolerance suggestions. This size chart tool helps
+                streamline your path to production.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 left-5 md:left-10 -z-10">
+          <img src="./images/genie-pot.png" alt="" class="w-1/3 md:w-1/2" />
+        </div>
+      </section>
+
+      <!-- ===== COMING SOON SECTION ===== -->
+      <section class="relative h-full py-16 overflow-hidden">
+        <h1 class="text-center text-2xl">
+          More <span class="font-semibold">magic</span> comming soon: techpacks,
+          Pantone color matching. moodboards. and more
+        </h1>
+        <img
+          src="./images/magic-banner-1.png"
+          alt=""
+          class="absolute w-[150px] top-0 -z-10"
+        />
+        <img
+          src="./images/magic-banner-2.png"
+          alt=""
+          class="absolute w-[150px] top-10 left-20 rotate-[50deg] -z-10"
+        />
+        <img
+          src="./images/magic-banner-1.png"
+          alt=""
+          class="absolute w-[150px] top-0 right-0 rotate-[50deg] -z-10"
+        />
+      </section>
+
+      <!-- ===== WHY CHOOSE DESIGN GENIE SECTION ===== -->
+      <section class="relative overflow-hidden h-full pb-10">
+        <img
+          src="./images/grediant-logo.png"
+          alt="logo"
+          class="h-14 md:h-20 mr-4 absolute top-10 left-5 md:left-10"
+        />
+        
+        <div class="text-center py-14">
+          <h1 class="text-3xl">Why Designers Choose DesignGenie?</h1>
+        </div>
+
+        <div class="flex flex-col items-center gap-10">
+          <!-- Card 1 -->
+          <div class="px-20 flex md:flex-row flex-col items-start gap-10">
+            <div class="w-[30rem] px-10 py-5 rounded-2xl shade-box">
+              <h1 class="font-bold text-3xl mb-6">Creative Flow</h1>
+              <p class="text-lg mb-8">
+                Design faster, better, with inspiration and execution in sync.
+              </p>
+              <ul class="space-y-4 list-disc pl-5">
+                <li class="text-lg">
+                  Built for fashion professionals, not generic image tools
+                </li>
+                <li class="text-lg">
+                  Seamless idea-to-sample journey, design, spec, and tech pack,
+                  all in one place
+                </li>
+                <li class="text-lg">
+                  AI-generated sketches paired with data like Pantones, size
+                  charts, and more
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <img src="./images/choose-card-1.png" alt="" />
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="px-20 flex md:flex-row flex-col items-start gap-10">
+            <div class="flex justify-center items-center">
+              <img src="./images/choose-card-2.png" alt="" class="w-1/2" />
+            </div>
+            <div class="w-[30rem] px-10 py-5 rounded-2xl shade-box">
+              <h1 class="font-bold text-3xl mb-6">Creative Flow</h1>
+              <p class="text-lg mb-8">
+                Design faster, better, with inspiration and execution in sync.
+              </p>
+              <ul class="space-y-4 list-disc pl-5">
+                <li class="text-lg">
+                  Built for fashion professionals, not generic image tools
+                </li>
+                <li class="text-lg">
+                  Seamless idea-to-sample journey, design, spec, and tech pack,
+                  all in one place
+                </li>
+                <li class="text-lg">
+                  AI-generated sketches paired with data like Pantones, size
+                  charts, and more
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="px-20 flex md:flex-row flex-col items-start gap-10 w-full">
+            <div class="w-full px-10 py-5 rounded-2xl shade-box ml-10">
+              <h1 class="font-bold text-3xl mb-6">Creative Flow</h1>
+              <p class="text-lg mb-8">
+                Design faster, better, with inspiration and execution in sync.
+              </p>
+              <ul class="space-y-4 list-disc pl-5">
+                <li class="text-lg">
+                  Built for fashion professionals, not generic image tools
+                </li>
+                <li class="text-lg">
+                  Seamless idea-to-sample journey, design, spec, and tech pack,
+                  all in one place
+                </li>
+                <li class="text-lg">
+                  AI-generated sketches paired with data like Pantones, size
+                  charts, and more
+                </li>
+              </ul>
+            </div>
+            <div class="">
+              <img src="./images/choose-card-3.png" alt="" class="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FREE TRIAL SECTION ===== -->
+      <section class="relative overflow-hidden h-[80vh] flex items-center justify-center">
+        <div class="flex flex-col justify-center items-center gap-20">
+          <h1 class="text-2xl">Try DesignGenie: 50 Free Credits on us</h1>
+          <button
+            class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-10 py-2 rounded-lg text-lg font-medium opacity-75 border"
+          >
+            Sign Up
+          </button>
+          <div class="text-center max-w-xl">
+            <p>
+              Curious what your Genie can do? Try out our most powerful tools,
+              text-to-image, variations, combination, and size charts, with 50
+              free credits.
+            </p>
+            <p class="font-bold">
+              We're still building, so your feedback means the world.
+            </p>
+          </div>
+        </div>
+        <div class="purple-glow-circle"></div>
+        <div class="pink-glow-circle"></div>
+      </section>
+
+      <!-- ===== BLOGS SECTION ===== -->
+      <section id="blogs" class="relative w-full py-24 md:py-32 overflow-hidden">
+        <img
+          src="./images/white-logo.png"
+          alt="logo"
+          class="h-14 md:h-20 mr-4 absolute top-10 left-10"
+        />
+        
+        <!-- Background Gradient -->
+        <div
+          class="pointer-events-none absolute top-0 right-0 h-[400px] w-[400px] bg-[radial-gradient(circle_at_top_right,rgba(219,13,255,0.5)_0%,transparent_70%)] z-0"
+        ></div>
+
+        <div class="relative flex flex-col gap-14 px-6 md:flex-row md:px-12 lg:px-20">
+          <!-- Blog Title -->
+          <div class="shrink-0 md:pt-4 lg:pt-10" style="min-width: 200px; max-width: 240px">
+            <h2 class="font-[450] leading-none text-[48px] sm:text-[64px] lg:text-[86px]">
+              Blogs
+            </h2>
+          </div>
+
+          <!-- Blog Cards Grid -->
+          <div class="grid grid-cols-1 gap-12 sm:grid-cols-2">
+            <!-- Card 1 : image only -->
+            <div class="rounded-[42px] p-6 border w-[25rem]">
+              <img
+                src="./images/blog-1.png"
+                alt="AI design workflow"
+                class="mt-6 h-[320px] w-full rounded-[26px] object-cover"
+              />
+            </div>
+
+            <!-- Card 2 : text only -->
+            <article class="rounded-[42px] w-[25rem] p-10 border ring-1 ring-black/10 flex flex-col justify-between">
+              <div>
+                <h3 class="mb-4 font-light text-2xl">
+                  Best practices for size chart creation
+                </h3>
+                <p class="text-lg leading-relaxed">
+                  Creating a clear, helpful size chart isn't just a technical step
+                  it's part of the brand experience. When customers feel confident
+                  in their size, they're more likely to convert ...
+                  <button
+                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium text-white backdrop-blur"
+                  >
+                    Read more
+                  </button>
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 3 : text first, then image -->
+            <article class="w-[25rem] border order-4 sm:order-3 flex flex-col justify-between rounded-[42px] p-10 shadow-sm ring-1 ring-black/10">
+              <div>
+                <h3 class="mb-4 font-light text-2xl">
+                  How AI is Transforming the Design Process
+                </h3>
+                <p class="text-lg leading-relaxed">
+                  AI is revolutionizing the fashion industry—turning your ideas
+                  into ready-to-use designs in seconds. No sketching. No endless
+                  revisions. Just pure creativity, elevated with smart tools.
+                  <button
+                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium text-white backdrop-blur"
+                  >
+                    Read more
+                  </button>
+                </p>
+              </div>
+            </article>
+
+            <!-- Card 4 : image on top, text under -->
+            <article class="w-[25rem] border order-3 sm:order-4 flex flex-col rounded-[42px] p-6 shadow-sm ring-1 ring-black/10">
+              <img
+                src="./images/blog-2.png"
+                alt="Designer with holographic tools"
+                class="mx-auto h-[320px] w-full rounded-[26px] object-cover"
+              />
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== FAQ SECTION ===== -->
+      <section id="faqs" class="relative w-full overflow-hidden py-20">
+        <img
+          src="./images/white-logo.png"
+          alt="logo"
+          class="h-14 md:h-20 mr-4 absolute top-10 left-10"
+        />
+        <div class="faq-purple-glow-circle"></div>
+        
+        <div class="mx-auto grid max-w-[1400px] grid-cols-1 gap-16 px-6 md:grid-cols-2 md:gap-24 md:px-12 lg:px-20">
+          <!-- FAQ Left Column -->
+          <div class="flex flex-col justify-center">
+            <h2 class="mb-10 text-4xl font-light leading-tight text-[42px] sm:text-[54px] lg:text-[64px]">
+              Have questions?<br />Start here
+            </h2>
+
+            <input
+              type="text"
+              placeholder="Search questions here…"
+              class="w-full max-w-[480px] rounded-full border-none bg-purple-400/30 py-4 pl-6 pr-4 text-lg backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+            />
+          </div>
+
+          <!-- FAQ Right Column -->
+          <div class="flex flex-col">
+            <ul class="space-y-4 text-[20px] sm:text-[22px] lg:text-[24px]">
+              <!-- FAQ 1 -->
+              <li>
+                <details class="group rounded-xl bg-zinc-600 transition">
+                  <summary class="flex cursor-pointer items-start px-8 py-2 list-none">
+                    <span class="mr-4 mt-1 text-3xl leading-none">•</span>
+                    <span class=""
+                      >Do I need fashion design experience&nbsp;to&nbsp;use
+                      DesignGenie?</span
+                    >
+                  </summary>
+                  <div class="px-10 pb-5 text-base leading-relaxed">
+                    Nope! DesignGenie's interface is built for beginners.
+                    AI-driven templates and step-by-step prompts walk you through
+                    every stage of the design process.
+                  </div>
+                </details>
+              </li>
+
+              <!-- FAQ 2 -->
+              <li>
+                <details class="group rounded-xl bg-zinc-600 transition">
+                  <summary class="flex cursor-pointer items-start px-8 py-2 list-none">
+                    <span class="mr-4 mt-1 text-3xl leading-none">•</span>
+                    <span class=""
+                      >What happens to my uploaded images and&nbsp;data?</span
+                    >
+                  </summary>
+                  <div class="px-10 pb-5 text-base leading-relaxed">
+                    We store your assets securely on encrypted servers. Your
+                    designs never leave our platform and are not used to train any
+                    third-party AI models.
+                  </div>
+                </details>
+              </li>
+
+              <!-- FAQ 3 -->
+              <li>
+                <details class="group rounded-xl bg-zinc-600 transition">
+                  <summary class="flex cursor-pointer items-start px-8 py-2 list-none">
+                    <span class="mr-4 mt-1 text-3xl leading-none">•</span>
+                    <span class=""
+                      >Can I create size charts for kids, women,
+                      and&nbsp;men?</span
+                    >
+                  </summary>
+                  <div class="px-10 pb-5 text-base leading-relaxed">
+                    Absolutely. Our AI size-chart generator includes presets for
+                    toddler, youth, women's, and men's grading—plus full manual
+                    control if you need custom measurements.
+                  </div>
+                </details>
+              </li>
+
+              <!-- FAQ 4 -->
+              <li>
+                <details class="group rounded-xl bg-zinc-600 transition">
+                  <summary class="flex cursor-pointer items-start px-8 py-2 list-none">
+                    <span class="mr-4 mt-1 text-3xl leading-none">•</span>
+                    <span class="">Will more tools be added later?</span>
+                  </summary>
+                  <div class="px-10 pb-5 text-base leading-relaxed">
+                    Yes! We roll out new AI-powered modules every quarter.
+                    Upcoming releases include 3D mock-ups and sustainability
+                    scoring.
+                  </div>
+                </details>
+              </li>
+
+              <!-- FAQ 5 -->
+              <li>
+                <details class="group rounded-xl bg-zinc-600 transition">
+                  <summary class="flex cursor-pointer items-start px-8 py-2 list-none">
+                    <span class="mr-4 mt-1 text-3xl leading-none">•</span>
+                    <span class="">How do I share feedback?</span>
+                  </summary>
+                  <div class="px-10 pb-5 text-base leading-relaxed">
+                    Hit the "Feedback" button in the sidebar or email us at
+                    feedback@designgenie.com. We read every message!
+                  </div>
+                </details>
+              </li>
+            </ul>
+
+            <button class="mt-12 w-max rounded-full bg-zinc-600 px-10 py-2 text-lg">
+              See all FAQs
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA SECTION ===== -->
+      <section class="relative w-full py-20 px-4 md:px-8 lg:px-12 flex items-center justify-center overflow-hidden">
+        <div class="credit-purple-glow-circle-left"></div>
+        <div class="credit-purple-glow-circle-right"></div>
+        <div class="z-10 text-center">
+          <h1 class="text-2xl leading-tight mb-8 font-light">
+            Your Genie is ready. Start creating with 50 free Credits.
+          </h1>
+          <button
+            class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-10 py-2 rounded-lg text-lg font-medium opacity-75 border"
+          >
+            Get started Free
+          </button>
+        </div>
+        <div class="credit-pink-glow-circle-bottom"></div>
+        <div class="credit-pink-glow-circle-top"></div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="relative py-10 overflow-hidden">
+      <div class="footer-purple-glow-circle"></div>
+      <div class="footer-pink-glow-circle"></div>
+      
+      <div class="px-20">
+        <h2 class="text-4xl mb-6 pl-14 font-light mb-10">Contact</h2>
+        
+        <div class="px-6 md:px-12 mt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10 md:gap-0">
+          <!-- Left: Logo -->
+          <div class="flex flex-col items-center">
+            <img
+              src="./images/grediant-logo.png"
+              alt="Design Genie"
+              class="h-40 w-auto mb-2"
+            />
+            <img
+              src="./images/nav-logo.png"
+              alt="Design Genie"
+              class="h-20 w-auto mb-2"
+            />
+          </div>
+
+          <!-- Right: Contact Info -->
+          <div class="text-left space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Email</h3>
+              <p class="text-base">hello@designgenie.com</p>
+            </div>
+           
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Social</h3>
+              <div class="flex space-x-4 text-2xl">
+                <a href="#" class="hover:text-pink-600 transition"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="hover:text-pink-600 transition"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Nav Links -->
+        <div class="mt-12 flex justify-center">
+          <div
+            class="bg-gray-300 rounded-full py-2 px-6 flex flex-wrap justify-center gap-x-4 gap-y-2 bg-gradient-to-r from-[#333] to-[#7100CA]"
+          >
+            <a href="#" class="hover:text-pink-500 transition">About Us</a> |
+            <a href="#" class="hover:text-pink-500 transition">Contact Us</a> |
+            <a href="#" class="hover:text-pink-500 transition"
+              >Terms of Service</a
+            >
+            |
+            <a href="#" class="hover:text-pink-500 transition"
+              >Privacy Policy</a
+            >
+            | <a href="#" class="hover:text-pink-500 transition">Blog</a> |
+            <a href="#" class="hover:text-pink-500 transition">FAQs</a> |
+            <a href="#" class="hover:text-pink-500 transition">Feedback</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+
+      // Theme toggle functionality
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+
+      function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+        localStorage.setItem(
+          "theme",
+          document.documentElement.classList.contains("dark") ? "dark" : "light"
+        );
+      }
+
+      // Check for saved user preference
+      if (
+        localStorage.getItem("theme") === "dark" ||
+        (!localStorage.getItem("theme") &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      themeToggle.addEventListener("click", toggleTheme);
+      themeToggleMobile.addEventListener("click", toggleTheme);
+    </script>
+  </body>
+</html>
