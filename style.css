@@ -156,6 +156,24 @@
   z-index: -1;
 }
 
+.blog-pink-glow-circle {
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #d10895,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 20%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
 .footer-pink-glow-circle {
   position: absolute;
   width: 50vw;
