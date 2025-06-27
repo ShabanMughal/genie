@@ -252,11 +252,11 @@
          <div
   class="mt-8 md:mt-0 ml-5 px-5 md:px-20 py-5 md:py-10 flex flex-col gap-5 md:gap-10 rounded-tl-3xl rounded-bl-3xl md:w-1/2 relative"
 >
-<div class="absolute w-[53rem] -left-5 top-0">
+<div class="absolute w-[53rem] left-0 md:-left-5 top-0">
   <img src="./lay.png" alt="" class="w-[73rem] desktop-img">
 </div>
   <!-- Feature 1 -->
-  <div class="flex flex-col gap-2">
+  <div class="flex flex-col gap-2 px-5 md:px-0">
     <i class="fas fa-user-circle text-2xl md:text-3xl"></i>
     <p class="text-xl md:text-3xl font-medium">Text to Image</p>
     <p class="text-base md:text-lg">
@@ -453,7 +453,7 @@
             Sign Up
           </button>
           <div class="text-center max-w-xl px-10 md:px-0">
-            <p>
+            <p class="opacity-75">
               Curious what your Genie can do? Try out our most powerful tools,
               text-to-image, variations, combination, and size charts, with 50
               free credits.
@@ -499,7 +499,7 @@
           <div class="grid grid-cols-1 gap-12 md:grid-cols-2">
             <!-- Card 1 : image only -->
             <div
-              class="rounded-[42px] p-6 border max-w-[25rem] mx-auto shade-box"
+              class="theme-shade rounded-[42px] p-6 border max-w-[25rem] mx-auto shade-box"
             >
               <img
                 src="./images/blog-1.png"
@@ -510,7 +510,7 @@
 
             <!-- Card 2 : text only -->
             <article
-              class="rounded-[42px] max-w-[25rem] mx-auto shade-box p-10 border ring-1 ring-black/10 flex flex-col justify-between"
+              class="theme-shade max-w-[25rem] mx-auto shade-box p-10 border ring-1 ring-black/10 flex flex-col justify-between"
             >
               <div>
                 <h3 class="mb-4 font-light text-2xl">
@@ -521,7 +521,7 @@
                   step it's part of the brand experience. When customers feel
                   confident in their size, they're more likely to convert ...
                   <button
-                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium text-white backdrop-blur"
+                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium backdrop-blur"
                   >
                     Read more
                   </button>
@@ -531,7 +531,7 @@
 
             <!-- Card 3 : text first, then image -->
             <article
-              class="max-w-[25rem] border order-4 mx-auto shade-box sm:order-3 flex flex-col justify-between rounded-[42px] p-10 shadow-sm ring-1 ring-black/10"
+              class="theme-shade max-w-[25rem] border order-4 mx-auto shade-box sm:order-3 flex flex-col justify-between p-10 ring-1 ring-black/10"
             >
               <div>
                 <h3 class="mb-4 font-light text-2xl">
@@ -542,7 +542,7 @@
                   into ready-to-use designs in seconds. No sketching. No endless
                   revisions. Just pure creativity, elevated with smart tools.
                   <button
-                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium text-white backdrop-blur"
+                    class="mt-1 self-start rounded-full bg-white/50 px-6 py-1 text-sm font-medium backdrop-blur"
                   >
                     Read more
                   </button>
@@ -552,7 +552,7 @@
 
             <!-- Card 4 : image on top, text under -->
             <article
-              class="max-w-[25rem] border order-3 sm:order-4 mx-auto shade-box flex flex-col rounded-[42px] p-6 shadow-sm ring-1 ring-black/10"
+              class="theme-shade max-w-[25rem] border order-3 sm:order-4 mx-auto shade-box flex flex-col p-6 shadow-sm ring-1 ring-black/10"
             >
               <img
                 src="./images/blog-2.png"
@@ -583,7 +583,7 @@
   type="text"
   placeholder="Search questions here…"
   class="w-full max-w-[480px] rounded-full border-none py-3 pl-6 pr-4 text-lg backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder:text-white text-white"
-  style="background-image: linear-gradient(to right, #8b7f88, #8e44ad);"
+  style="background-image: linear-gradient(to right, #8b7f88, #7c2c9e);"
 />
 
           </div>
@@ -748,7 +748,7 @@
 
             <div>
               <h3 class="text-lg font-semibold mb-1">Social</h3>
-              <div class="flex space-x-4 text-2xl">
+              <div class="flex space-x-4 text-3xl">
                 <a href="#" class="hover:text-pink-600 transition"
                   ><i class="fab fa-facebook-f"></i
                 ></a>
@@ -797,6 +797,7 @@
     function updateImages(theme) {
     const desktopImgs = document.querySelectorAll('.desktop-img');
     const mobileImgs = document.querySelectorAll('.mobile-img');
+    
 
     desktopImgs.forEach(img => {
       img.src = images[theme].desktop;
@@ -816,12 +817,23 @@
       // Theme toggle functionality
       const themeToggle = document.getElementById("theme-toggle");
       const themeToggleMobile = document.getElementById("theme-toggle-mobile");
-
+      const shadeBoxes = document.querySelectorAll('.theme-shade')
+      
       function toggleTheme() {
         const isDark = document.documentElement.classList.toggle("dark");
         const newTheme = isDark ? "dark" : "light";
         localStorage.setItem("theme", newTheme);
         updateImages(newTheme);
+
+        shadeBoxes.forEach(shadeBox => {
+        if (!isDark) {
+          shadeBox.classList.remove('shade-box-light');
+          shadeBox.classList.add('shade-box');
+        } else {
+          shadeBox.classList.remove('shade-box');
+          shadeBox.classList.add('shade-box-light');
+        }
+      });
       }
 
       // Check for saved user preference
