@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Design Genie</title>
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./aboutStyele.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="shortcut icon"
+      href="./images//grediant-logo.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+      };
+    </script>
+  </head>
+  <body
+    class="bg-black text-white dark:bg-white dark:text-black transition-colors duration-300"
+  >
+    <!-- ========== HEADER SECTION ========== -->
+    <header class="relative w-full">
+      <!-- Navigation -->
+      <nav
+        class="flex items-center justify-between md:justify-start p-4 md:p-6 max-w-[1500px] mx-auto"
+      >
+        <div class="flex items-center">
+          <img
+            src="./images/logo.png"
+            alt="DesignGenie Logo"
+            class="h-14 md:h-20 mr-4"
+          />
+        </div>
+        <!-- Navbar Links -->
+        <ul
+          id="menu"
+          class="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-0 md:space-x-8 absolute md:static top-20 left-0 w-full md:w-auto backdrop-blur-lg md:backdrop-filter-none bg-transparent p-4 md:p-0 z-10 hidden md:flex md:items-center"
+        >
+          <li>
+            <a
+              href="#gallery"
+              class="nav-link block md:inline dark:text-black text-white"
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faqs"
+              class="nav-link block md:inline dark:text-black text-white"
+              >FAQs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#about"
+              class="nav-link block md:inline dark:text-black text-white"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="#pricing"
+              class="nav-link block md:inline dark:text-black text-white"
+              >Pricing</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="nav-link block md:inline dark:text-black text-white"
+              >Contact</a
+            >
+          </li>
+          <!-- <li>
+            <button
+              id="theme-toggle-mobile"
+              class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-4 py-2 rounded-full md:hidden mt-2 transition-all hover:scale-105"
+            >
+              Toggle Theme
+            </button>
+          </li> -->
+        </ul>
+        <!-- Theme Toggle and Menu Button -->
+        <!-- <div class="flex items-center justify-between">
+          <button
+            id="theme-toggle"
+            class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-4 py-2 rounded-full mr-4 hidden md:block"
+          >
+            Toggle Theme
+          </button>
+          <button
+            id="menu-btn"
+            class="md:hidden text-white dark:text-black focus:outline-none"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div> -->
+      </nav>
+      <div class="relative flex justify-center h-full">
+        <img
+          src="./images/about-hero.png"
+          alt=""
+          class="w-[40rem] mr-20 mt-2"
+        />
+        <div
+          class="absolute bg-[#d10895] md:w-[350px] md:h-[350px] w-[200px] h-[200px] rounded-full top-[25%] flex justify-center items-center overflow-hidden"
+        >
+          <p class="text-4xl py-2 text-white">About Us</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="relative py-10 flex flex-col gap-10 md:gap-20">
+      <div class="section-purple-glow-circle"></div>
+      <div class="section-purple-glow-circle-2"></div>
+      <div class="section-purple-glow-circle-3"></div>
+      <div class="section-purple-glow-circle-4"></div>
+      <div class="section-purple-glow-circle-5"></div>
+      <!-- Section 1: Text Left | Card Right -->
+      <section class="custom-section pl-10 md:pl-0">
+        <div class="content flex items-center md:flex-row flex-col">
+          <div class="left-text flex justify-center">
+            <div class="flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+              <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">Why We Built</p>
+              <h2 class="text-2xl md:text-5xl overflow-hidden">Design Genie?</h2>
+            </div>
+          </div>
+          <div class="border-shadow-blur right-radius">
+            <p class="font-light text-zinc-300">
+              I spent nearly <strong class="text-white">20 years</strong> in
+              garment exports. Our typical cycle looked like this: the client
+              shared a theme, say, 10 styles of Boys' Printed Tees with Denim
+              Shorts across sizes from newborn to toddler. We quote, get the
+              order, build sample after sample, embroidery approvals, lab dips,
+              fabric yardage checks, and pre-production approvals.
+              <strong class="text-white"
+                >The whole process took six months.</strong
+              >
+              <br />
+              And yet, we were <strong class="text-white">often rushed</strong>.
+              <br />
+              Because the buyer already knew who they wanted this season's
+              orders from,
+              <strong class="text-white"
+                >our tech packs and sketches were constantly
+                deprioritized</strong
+              >. We were left scrambling, either compressing development or
+              <strong class="text-white"
+                >eating into production timelines</strong
+              >. <br />
+              Over time, I started talking to my buyers' designers. I learned
+              that
+              <strong class="text-white">fashion has too many variables</strong
+              >, even with templates and digital tools. No one-size-fits-all
+              solution existed. But I couldn't shake the feeling:
+              <strong class="text-white">there had to be a better way</strong>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Card Left | Text Right -->
+      <section class="custom-section pr-10 md:pr-0">
+        <div class="content flex items-center md:flex-row flex-col-reverse">
+          <div class="border-shadow-blur left-radius">
+            <p class="font-light leading-relaxed">
+              I moved on to other
+              <strong class="text-white">manufacturing ventures</strong>.
+              Eventually, I shifted careers into
+              <strong class="text-white">Artificial Intelligence</strong>.
+              Somewhere along the way, it clicked, “<strong class="text-white"
+                >Maybe now the technology exists to help designers!</strong
+              >”. <br />
+              That was the <strong class="text-white">Eureka moment</strong>.
+              What if we built a tool, a
+              <strong class="text-white">Genie</strong> that assisted designers
+              through the tedious parts, without ever taking away their creative
+              control? <br />
+              Like any good Genie, it would
+              <strong class="text-white">help bring ideas to life</strong>. Not
+              magic exactly, just
+              <strong class="text-white">advanced algorithms</strong> that feel
+              like <strong class="text-white">magic</strong>.
+            </p>
+          </div>
+          <div class="left-text relative overflow-hidden flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+            <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">From Garment</p>
+            <h2 class="text-xl md:text-5xl overflow-hidden">Floors to AI Labs</h2>
+            <!-- <img
+              src="./images//section2bg.png"
+              class="absolute bottom-0 -z-10 opacity-25 rounded-xl w-[400px]"
+              style="filter: blur(1px)"
+              alt=""
+            /> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Text Left | Card Right -->
+      <section class="custom-section pl-10 md:pl-0">
+        <div class="content relative overflow-hidden flex items-center md:flex-row flex-col">
+          <div class="left-text flex justify-center relative overflow-hidden">
+            <div class="flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+              <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">The Journey</p>
+              <h2 class="text-xl md:text-5xl overflow-hidden">Begins</h2>
+            </div>
+        </div>
+        <!-- <img
+        src="./images//section3bg.png"
+        class="absolute -bottom-20 left-20 -z-10 opacity-25 rounded-xl w-[400px]"
+        style="filter: blur(1px)"
+        alt=""
+      /> -->
+          <div class="border-shadow-blur right-radius font-light">
+            <p class="leading-relaxed">
+              I floated the idea to people I trusted, industry peers,
+              manufacturers, and software folks. They liked it. But I didn’t
+              stop there. I showed them similar tools already in the market and
+              asked, “<strong class="text-white"
+                >Are these solving your problems?</strong
+              >” <br />
+              Their feedback confirmed what I suspected:
+              <strong class="text-white">something was missing</strong>. <br />
+              So <strong class="text-white">I set out to build</strong> it, with
+              a few key principles in mind:
+
+              <li>
+                The Genie would handle the routine, while you stay <strong class="text-white">focused on
+                what truly matters</strong>.
+              </li>
+              <li>
+                It would <strong class="text-white">adapt to your workflow</strong>, not the other way around.
+              </li>
+              <li>
+                You could step in at any point and use only what you need. <strong class="text-white">No
+                rigid paths. No lock-ins</strong>.
+              </li>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Card Left | Text Right -->
+      <section class="custom-section pr-10 md:pr-0">
+        <div class="content flex items-center md:flex-row flex-col-reverse">
+          <div class="border-shadow-blur left-radius">
+            <p class="font-light leading-relaxed">
+              That’s when I met my co-founders. <br> <strong class="text-white underline">Lalit</strong>, <strong class="text-white">a trusted industry
+              partner</strong>, supplies garment accessories to manufacturers and
+              exporters. He consulted his network of designers, their feedback
+              was encouraging, and he joined the project. <br> <strong class="text-white"><span class="underline">Benjamin</span>, a system
+              architect</strong> working with AI and also having worked with many fashion
+              brands. When I pitched the idea to him, he not only loved it, he
+              proposed something bold: skip the software contract, take equity
+              instead. That sealed it. <br> <strong class="text-white">We were building something real</strong>.
+            </p>
+          </div>
+          <div class="left-text flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+            <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">The Humans Behind</p>
+            <h2 class="text-xl md:text-5xl overflow-hidden">the Genie</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Card Left | Text Right -->
+      <section class="custom-section pl-10 md:pl-0">
+        <div class="content flex items-center md:flex-row flex-col">
+          <div class="left-text flex justify-center">
+            <div class="flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+              <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">Built With Feedback.</p>
+              <h2 class="text-xl md:text-5xl overflow-hidden">Fueled by You</h2>
+            </div>
+          </div>
+          <div class="border-shadow-blur right-radius">
+            <p class="font-light leading-relaxed">
+              We created <strong class="text-white">early prototypes</strong> and took them back to the people we
+              trusted. Then we went wider, anonymous users on Reddit, LinkedIn,
+              and beyond. We wanted strangers to tell us if we were building
+              something meaningful or just another tool. <br> Their response? <strong class="text-white">It
+              wasn’t perfect yet</strong>, but it was <strong class="text-white">worth building</strong>. <br>
+              <strong class="text-white">So we did</strong>. And we
+              haven’t stopped
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Card Left | Text Right -->
+      <section class="custom-section pr-10 md:pr-0">
+        <div class="content flex items-center md:flex-row flex-col-reverse">
+          <div class="border-shadow-blur left-radius">
+            <p class="font-light leading-relaxed">
+              I’ve launched two businesses before. Both failed. Why? Because I
+              thought: “This is a great idea. People should want it.” <br> This time,
+              we did it differently. <br> <strong class="text-white">Validation. Feedback. Iteration. Repeat.</strong> <br>
+              You’ve been at the heart of every decision, because if DesignGenie
+              can give you back time, let you focus more on creativity, or even
+              help you reclaim your evenings, that’s a win.
+            </p>
+          </div>
+          <div class="left-text flex justify-center flex-row items-center md:items-start gap-5 md:flex-col">
+            <p class="mt-3 md:mt-0 text-lg md:text-4xl overflow-hidden">From Failure to</p>
+            <h2 class="text-xl md:text-5xl overflow-hidden">Focus</h2>
+          </div>
+        </div>
+      </section>
+
+      <!-- We’re Still Listening Section -->
+
+      <section
+        class="custom-section we-listening overflow-hidden"
+        style="
+          min-height: 100vh;
+          padding: 100px 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          position: relative;
+        "
+      >
+      <div class="listening-purple-glow-circle"></div>
+      <div class="listening-pink-glow-circle"></div>
+        <h1
+          class="section-main-title font-semibold text-3xl md:text-5xl overflow-hidden"
+          style="margin-bottom: 60px"
+        >
+          We’re Still Listening
+        </h1>
+
+        <div
+          class="zigzag-container"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 900px;
+            width: 100%;
+          "
+        >
+          <div
+            class="zigzag-row flex justify-center md:justify-start"
+          >
+            <p
+              class="zigzag-text text-lg md:text-2xl"
+              style="max-width: 600px; line-height: 1.8"
+            >
+              We don’t have all the <strong>answers</strong>.
+            </p>
+          </div>
+          <div
+            class="zigzag-row flex justify-center md:justify-start"
+           
+          >
+            <p
+              class="zigzag-text text-lg md:text-2xl"
+              style="max-width: 600px; line-height: 1.8"
+            >
+              But we’re <strong>building</strong>, <strong>improving</strong>, and <strong>listening</strong>.
+            </p>
+          </div>
+          <div
+            class="zigzag-row flex justify-center md:justify-start"
+          >
+            <p
+              class="zigzag-text text-lg md:text-2xl"
+              style="max-width: 600px; line-height: 1.8"
+            >
+              So, tell us <strong>what you need</strong>.
+            </p>
+          </div>
+          <div
+            class="zigzag-row flex justify-center md:justify-start"
+          >
+            <p
+              class="zigzag-text text-lg md:text-2xl"
+              style="max-width: 500px; line-height: 1.8"
+            >
+              Tell us <strong>what’s not working</strong>.
+            </p>
+          </div>
+        </div>
+        <div class="listening-bottom-pink-glow-circle"></div>
+        <h1
+          class="section-main-title font-semibold pt-20 text-3xl md:text-5xl overflow-hidden"
+          style=" margin-bottom: 60px"
+        >
+          Let your Genie evolve, with you
+        </h1>
+      </section>
+
+      <section
+        class="custom-section meet-founders relative"
+        style="
+          padding: 100px 20px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h2 style="margin-bottom: 40px; color: white" class="text-3xl md:text-5xl overflow-hidden">
+          Curious to meet the founders?
+        </h2>
+        <button
+          class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-10 py-2 rounded-lg text-lg font-medium opacity-75 border"
+        >
+          Meet the founders
+        </button>
+        <div class="absolute top-10 overflow-hidden flex justify-between w-full max-w-[800px]">
+            <img src="./images/about-hero.png" class="w-56 rotate-90" alt="">
+            <img src="./images/about-hero.png" class="w-56 -rotate-90" alt="">
+        </div>
+      </section>
+
+      <section
+        class="custom-section feedback-section"
+        style="
+          padding: 100px 20px;
+          text-align: center;
+          background: #000;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <h2 style="margin-bottom: 40px; color: white" class="text-3xl md:text-5xl overflow-hidden">
+          Your Feedback Fuels Us
+        </h2>
+        <p
+          style="
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            color: #ccc;
+          "
+        >
+          Drop us a note, a request, a bug, or a wish; we’re listening!
+        </p>
+        <button
+          class="bg-gradient-to-r from-[#7100CA] to-[#d10895] text-white px-10 py-2 rounded-lg text-lg font-medium opacity-75 border"
+        >
+          Get in touch
+        </button>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="relative py-10 overflow-hidden" id="contact">
+      <div class="footer-purple-glow-circle"></div>
+      <div class="footer-pink-glow-circle"></div>
+
+      <div class="px-5 md:px-20 max-w-[1500px] mx-auto">
+        <h2 class="text-4xl mb-6 pl-14 font-light mb-10 py-2">Contact</h2>
+
+        <div
+          class="px-6 md:px-12 mt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-10 md:gap-0"
+        >
+          <!-- Left: Logo -->
+          <div class="flex flex-col items-center">
+            <img
+              src="./images/grediant-logo.png"
+              alt="Design Genie"
+              class="h-40 w-auto mb-2"
+            />
+            <img
+              src="./images/nav-logo.png"
+              alt="Design Genie"
+              class="h-20 w-auto mb-2"
+            />
+          </div>
+
+          <!-- Right: Contact Info -->
+          <div class="text-left space-y-6">
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Email</h3>
+              <p class="text-base">hello@designgenie.com</p>
+            </div>
+
+            <div>
+              <h3 class="text-lg font-semibold mb-1">Social</h3>
+              <div class="flex space-x-4 text-3xl">
+                <a href="#" class="hover:text-pink-600 transition"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a href="#" class="hover:text-pink-600 transition"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Nav Links -->
+        <div class="mt-12 flex justify-center">
+          <div
+            class="bg-gray-300 rounded-lg px-2 md:px-0 md:rounded-full py-2 md:px-6 px-0 flex flex-wrap justify-center gap-x-4 gap-y-2 bg-zinc-700 dark:bg-zinc-400"
+          >
+            <a href="#" class="hover:text-pink-500 transition">About Us</a> |
+            <a href="#" class="hover:text-pink-500 transition">Contact Us</a> |
+            <a href="#" class="hover:text-pink-500 transition"
+              >Terms of Service</a
+            >
+            |
+            <a href="#" class="hover:text-pink-500 transition"
+              >Privacy Policy</a
+            >
+            | <a href="#" class="hover:text-pink-500 transition">Blog</a> |
+            <a href="#" class="hover:text-pink-500 transition">FAQs</a> |
+            <a href="#" class="hover:text-pink-500 transition">Feedback</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

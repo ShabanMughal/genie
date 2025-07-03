@@ -1,0 +1,396 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #000;
+  color: white;
+}
+
+/* Hero Section */
+.hero {
+  height: 150vh;
+  background: url("/round-loop.png") no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.center-image {
+  width: 35vw;
+  max-width: 500px;
+  height: 35vw;
+  max-height: 500px;
+  background: url("/pattern.jpg") no-repeat center center/cover;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.text-overlay {
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Section */
+.custom-section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 80px 20px; */
+}
+
+/* Content Container */
+.content {
+  max-width: 1500px;
+  width: 100%;
+  gap: 40px;
+}
+
+/* Reverse Flex Layout */
+.content.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Left Text */
+.left-text {
+  flex: 0 0 50%;
+}
+
+
+
+.left-text h2 {
+  /* font-size: 3.5rem; */
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+/* Glass Card Shared */
+.glass-card {
+  flex: 0 0 60%;
+  padding: 35px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* Rounded Corners for Left/Right Layout */
+.right-radius {
+  border-radius: 20px 0 0 20px;
+  font-size: large;
+}
+
+.left-radius {
+  border-radius: 0 20px 20px 0;
+  font-size: large;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .left-text,
+  .glass-card {
+    flex: 1 1 100%;
+  }
+/* 
+  .left-text p {
+    font-size: 1.3rem;
+  }
+
+  .left-text h2 {
+    font-size: 2rem;
+  } */
+
+  .center-image {
+    width: 60vw;
+    height: 60vw;
+  }
+
+  .text-overlay {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .center-image {
+    width: 70vw;
+    height: 70vw;
+  }
+
+  .text-overlay {
+    font-size: 1.2rem;
+  }
+}
+
+/* section2 */
+
+/* Background image with overlay text styling */
+.overlay-text {
+  background-image: url("/section2bg.png"); /* <-- Your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px;
+  /* border-radius: 12px; */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: dark overlay for better text readability */
+.overlay-text::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.5); darken bg */
+  /* border-radius: 12px; */
+  z-index: -1;
+}
+/* section3 */
+
+/* Background image with overlay text styling */
+.overlay-text3 {
+  background-image: url("/section3bg.png"); /* <-- Your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px;
+  /* border-radius: 12px; */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: dark overlay for better text readability */
+.overlay-text3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* darken bg */
+  /* border-radius: 12px; */
+  z-index: -1;
+}
+/* section4 */
+
+/* Background image with overlay text styling */
+.overlay-text4 {
+  background-image: url("/section4bg.png"); /* <-- Your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px;
+  /* border-radius: 12px; */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: dark overlay for better text readability */
+.overlay-text4::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* darken bg */
+  /* border-radius: 12px; */
+  z-index: -1;
+}
+/* section5 */
+
+/* Background image with overlay text styling */
+.overlay-text5 {
+  background-image: url("/section5bg.jpg"); /* <-- Your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px;
+  /* border-radius: 12px; */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: dark overlay for better text readability */
+.overlay-text5::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* darken bg */
+  /* border-radius: 12px; */
+  z-index: -1;
+}
+.overlay-text6 {
+  background-image: url("/section6bg.png"); /* <-- Your image path */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 90px;
+  /* border-radius: 12px; */
+  position: relative;
+  z-index: 1;
+}
+
+/* Optional: dark overlay for better text readability */
+.overlay-text6::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* darken bg */
+  /* border-radius: 12px; */
+  z-index: -1;
+}
+
+.border-shadow-blur {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0px 0px 30px 8px rgba(255, 255, 255, 0.25);
+  padding: 20px 40px;
+}
+.section-purple-glow-circle {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 10%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.section-purple-glow-circle-2 {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 20%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.section-purple-glow-circle-3 {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 30%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.section-purple-glow-circle-4 {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 40%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.section-purple-glow-circle-5 {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 55%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.listening-purple-glow-circle {
+  position: absolute;
+  width: 35vw;
+  height: 35vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #7100ca,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.listening-pink-glow-circle {
+  position: absolute;
+  width: 25vw;
+  height: 25vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #d10895,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 25%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.listening-bottom-pink-glow-circle {
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    #d10895,
+    rgba(113, 0, 202, 0) 70%
+  );
+  filter: blur(20px);
+  opacity: 0.8;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
